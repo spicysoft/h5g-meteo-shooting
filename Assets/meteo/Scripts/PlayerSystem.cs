@@ -2,6 +2,7 @@ using Unity.Entities;
 using Unity.Tiny.Core;
 using Unity.Tiny.Core2D;
 using Unity.Mathematics;
+using Unity.Tiny.Scenes;
 
 namespace Meteo
 {
@@ -21,19 +22,33 @@ namespace Meteo
 			} );
 
 
+			bool reqBullet = false;
+
 			Entities.ForEach( ( Entity entity, ref PlayerInfo player, ref Translation trans ) => {
 				if( !player.Initialized ) {
 					player.Initialized = true;
 					return;
 				}
 
-
 				var position = trans.Value;
 				position.x += moveDirection.x * 100f * deltaTime;
 				position.y += moveDirection.y * 100f * deltaTime;
 				trans.Value = position;
 
+				player.Interval += deltaTime;
+				if( player.Interval > 5f ) {
+					player.Interval = 0;
+					reqBullet = true;
+				}
 			} );
+
+			if( reqBullet ) {
+
+				var env = World.TinyEnvironment();
+				SceneReference bulletBase = env.GetConfigData<GameConfig>().PrefabBullet;
+				SceneService.LoadSceneAsync( bulletBase );
+			}
+
 
 		}
 	}
