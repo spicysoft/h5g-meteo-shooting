@@ -3,14 +3,14 @@ using Unity.Mathematics;
 
 namespace Meteo
 {
-	public struct BulletInfo : IComponentData
+	public struct MeteoInfo : IComponentData
 	{
 		public bool IsActive;
 		public bool Initialized;
 		public float BaseSpeed;
 		public float2 MoveDir;
-		public float3 PrePos;
-
-		public float Timer;
+		public float Radius;
+		public float DistSq;		// プレイヤーとの距離の２乗.
+		public int Life;
 	}
 }

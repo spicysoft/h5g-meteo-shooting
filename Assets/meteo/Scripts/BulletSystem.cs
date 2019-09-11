@@ -11,34 +11,38 @@ namespace Meteo
 		{
 			var deltaTime = World.TinyEnvironment().frameDeltaTime;
 
-			Entity delEnt = Entity.Null;
+			//Entity delEnt = Entity.Null;
 
-			Entities.ForEach( ( Entity entity, ref BulletInfo bullet, ref Translation trans ) => {
+			Entities.ForEach( ( Entity entity, ref BulletInfo bullet, ref Translation trans, ref NonUniformScale scl ) => {
 				if( !bullet.IsActive )
 					return;
 				if( !bullet.Initialized ) {
 					return;
 				}
 
+				// 移動.
 				var pos = trans.Value;
+				bullet.PrePos = pos;	// 前フレームのポジションとっておく.
 				var spd = bullet.MoveDir * bullet.BaseSpeed * deltaTime;
 				pos.x += spd.x;
 				pos.y += spd.y;
 				trans.Value = pos;
 
-				if( pos.y > 300f ) {
+				// 暫定的に時間で.
+				bullet.Timer += deltaTime;
+				if( bullet.Timer > 0.5f ) {
 					bullet.IsActive = false;
-					//EntityManager.AddComponent( entity, typeof(Disabled) );
-					delEnt = entity;
+					scl.Value.x = 0;	// スケール0にして消す.
+					//delEnt = entity;
 				}
-
 
 				//Debug.LogFormatAlways( "pos {0} {1}", pos.x, pos.y );
 			} );
 
-			if( delEnt != Entity.Null ) {
-				EntityManager.AddComponent( delEnt, typeof( Disabled ) );
-			}
+			/*if( delEnt != Entity.Null ) {
+				// DisableにするとEntityとして拾えないのでやめる.
+				//EntityManager.AddComponent( delEnt, typeof( Disabled ) );
+			}*/
 
 		}
 	}
