@@ -22,7 +22,8 @@
         }, {
             "$type": "Meteo.BulletInfo, meteo",
             "IsActive": true,
-            "MoveDir": {}
+            "MoveDir": {},
+            "PrePos": {}
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 14746775199828823428,
@@ -95,6 +96,8 @@
                 "StableTypeHash": 14562620529943489076
             }, {
                 "StableTypeHash": 11418974578546656643
+            }, {
+                "StableTypeHash": 15919681008406345453
             }]
         }]
     }]

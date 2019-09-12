@@ -23,9 +23,8 @@ namespace Meteo
 
 				if( !bullet.Initialized ) {
 					bullet.Initialized = true;
-					bullet.BaseSpeed = 1000f;
-					//bullet.MoveDir.x = 0;
-					//bullet.MoveDir.y = 1f;
+					bullet.BaseSpeed = 1200f;
+
 					trans.Value = playerPos;
 					rot.Value = playerRot;
 					float3 dir = math.rotate( rot.Value, new float3( 0, 1f, 0 ) );

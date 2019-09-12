@@ -7,6 +7,7 @@ namespace Meteo
 	{
 		public bool IsActive;
 		public bool Initialized;
+		public bool IsHit;
 		public float BaseSpeed;
 		public float2 MoveDir;
 		public float Radius;

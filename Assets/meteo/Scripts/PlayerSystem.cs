@@ -101,7 +101,7 @@ namespace Meteo
 					}
 				} );
 
-				Debug.LogFormatAlways( "bulcnt {0} recycled {1}", bulCnt, recycled );
+				//Debug.LogFormatAlways( "bulcnt {0} recycled {1}", bulCnt, recycled );
 
 				if( !recycled ) {
 					var env = World.TinyEnvironment();
