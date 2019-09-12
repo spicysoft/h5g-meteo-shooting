@@ -6,6 +6,7 @@ namespace Meteo
 	public struct GameConfig : IComponentData
 	{
 		public SceneReference PrefabBullet;
+		public SceneReference PrefabHitEff;
 
 		//public SceneReference TitleScn;
 		//public SceneReference GameOverScn;

@@ -2,6 +2,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Tiny.Core;
 using Unity.Tiny.Core2D;
+using Unity.Tiny.Scenes;
 
 namespace Meteo
 {
@@ -17,12 +18,14 @@ namespace Meteo
 				playerPos = trans.Value;
 			} );
 
+			bool reqHitEff = false;
+			//float3 hitEffPos = float3.zero;
 
 			Entities.ForEach( ( Entity entity, ref MeteoInfo meteo, ref Translation trans, ref NonUniformScale scl ) => {
 				if( !meteo.IsActive )
 					return;
 				if( !meteo.Initialized ) {
-					meteo.Life = 3;
+					meteo.Life = 13;
 					meteo.Initialized = true;
 					return;
 				}
@@ -35,7 +38,11 @@ namespace Meteo
 						meteo.IsActive = false;
 						scl.Value.x = 0;
 					}
-
+					else {
+						meteo.ReqHitEff = true;
+						reqHitEff = true;
+						//hitEffPos = meteo.HitPos;
+					}
 					return;
 				}
 
@@ -51,7 +58,11 @@ namespace Meteo
 				//Debug.LogFormatAlways( "pos {0} {1}", pos.x, pos.y );
 			} );
 
-
+			if( reqHitEff ) {
+				var env = World.TinyEnvironment();
+				SceneReference bulletBase = env.GetConfigData<GameConfig>().PrefabHitEff;
+				SceneService.LoadSceneAsync( bulletBase );
+			}
 		}
 	}
 }

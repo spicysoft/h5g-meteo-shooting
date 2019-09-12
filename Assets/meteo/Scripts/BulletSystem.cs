@@ -46,10 +46,13 @@ namespace Meteo
 					if( !meteo.Initialized )
 						return;
 
+					// 隕石との当たり判定.
 					var center = meteoTrans.Value;
 					var r = 100f;
 					if( checkColli( pos1, pos2, center, r ) ) {
+						// 当たった.
 						meteo.IsHit = true;
+						meteo.HitPos = pos2;
 						isHit = true;
 					}
 				} );
@@ -67,7 +70,7 @@ namespace Meteo
 		bool checkColli( float3 vSt, float3 vEd, float3 center, float r )
 		{
 			// A:線分の始点、B:線分の終点、P:円の中心、X:PからABに下ろした垂線との交点.
-			float2 vAB = new float2( vEd.x - vSt.x, vEd.y - vEd.x );
+			float2 vAB = new float2( vEd.x - vSt.x, vEd.y - vEd.y );
 			float2 vAP = new float2( center.x - vSt.x, center.y - vSt.y );
 			float2 vBP = new float2( center.x - vEd.x, center.y - vEd.y );
 

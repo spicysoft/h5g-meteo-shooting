@@ -28,7 +28,8 @@
             "BaseSpeed": 10,
             "MoveDir": {
                 "y": -1
-            }
+            },
+            "HitPos": {}
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 2651750751064179692,
@@ -105,6 +106,10 @@
                 "StableTypeHash": 14308027802064253921
             }, {
                 "StableTypeHash": 8897655790713846997
+            }, {
+                "StableTypeHash": 18180907834187969664
+            }, {
+                "StableTypeHash": 6703637564649311581
             }]
         }]
     }, {

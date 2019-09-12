@@ -8,6 +8,9 @@
             "$type": "Meteo.GameConfig, meteo",
             "PrefabBullet": {
                 "SceneGuid": "02819131b8a248a69a7b1f81209b9522"
+            },
+            "PrefabHitEff": {
+                "SceneGuid": "eb78730a17634773aad5ffd0ccc65ab0"
             }
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
@@ -30,6 +33,10 @@
                 "SceneReference": {
                     "SceneGuid": "02819131b8a248a69a7b1f81209b9522"
                 }
+            }, {
+                "SceneReference": {
+                    "SceneGuid": "eb78730a17634773aad5ffd0ccc65ab0"
+                }
             }]
         }, {
             "$type": "Unity.Tiny.Scenes.StartupScenes, Unity.Tiny.Scenes",
@@ -46,6 +53,8 @@
                 "StableTypeHash": 12662904853204722592
             }, {
                 "StableTypeHash": 16654459336070339646
+            }, {
+                "StableTypeHash": 7698766031025695928
             }]
         }, {
             "$type": "Unity.Authoring.Core.ConfigurationTag, Unity.Authoring.Core"
