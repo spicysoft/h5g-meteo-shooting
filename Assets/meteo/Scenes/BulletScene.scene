@@ -3,13 +3,13 @@
     "Guid": "02819131b8a248a69a7b1f81209b9522",
     "SerializedVersion": 1,
     "AssetReferences": [
-        { "Guid": "09695570d2eff4f2495ab74c745daf43", "FileId": 21300000, "Type": 3}],
+        { "Guid": "0c9fd643c0c454802b004ee51676cc45", "FileId": 21300000, "Type": 3}],
     "Entities": [{
         "Components": [{
             "$type": "Unity.Tiny.Core2D.Parent, Unity.Tiny.Core2D"
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRenderer, Unity.Tiny.Sprite2D",
-            "sprite": "39db77e3a1ecf4b7bf80ba385bf428b5",
+            "sprite": "5c4f59921b5098a07f11e045638671b3",
             "color": {
                 "r": 1,
                 "g": 1,
@@ -49,13 +49,6 @@
             "$type": "Unity.Tiny.Core2D.LayerSorting, Unity.Tiny.Core2D",
             "order": 1
         }, {
-            "$type": "Unity.Tiny.Core2D.Sprite2DRendererOptions, Unity.Tiny.Sprite2D",
-            "size": {
-                "x": 10,
-                "y": 100
-            },
-            "drawMode": 2
-        }, {
             "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
             "Elements": [{
                 "c": "B"
@@ -90,8 +83,6 @@
                 "StableTypeHash": 16791256614846730296
             }, {
                 "StableTypeHash": 874803706151837934
-            }, {
-                "StableTypeHash": 147127668789581756
             }, {
                 "StableTypeHash": 14562620529943489076
             }, {
