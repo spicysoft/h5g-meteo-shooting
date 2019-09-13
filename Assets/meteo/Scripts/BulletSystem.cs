@@ -48,7 +48,7 @@ namespace Meteo
 
 					// 隕石との当たり判定.
 					var center = meteoTrans.Value;
-					var r = 100f;
+					var r = meteo.Radius;
 					if( checkColli( pos1, pos2, center, r ) ) {
 						// 当たった.
 						meteo.IsHit = true;
@@ -70,12 +70,11 @@ namespace Meteo
 		bool checkColli( float3 vSt, float3 vEd, float3 center, float r )
 		{
 			// A:線分の始点、B:線分の終点、P:円の中心、X:PからABに下ろした垂線との交点.
-			float2 vAB = new float2( vEd.x - vSt.x, vEd.y - vEd.y );
+			float2 vAB = new float2( vEd.x - vSt.x, vEd.y - vSt.y );
 			float2 vAP = new float2( center.x - vSt.x, center.y - vSt.y );
 			float2 vBP = new float2( center.x - vEd.x, center.y - vEd.y );
 
 			float2 vABnorm = math.normalize( vAB );
-
 			// AXの距離.
 			float lenAX = inner2d( vAP, vABnorm );
 
@@ -95,20 +94,19 @@ namespace Meteo
 				shortestDistance = math.abs( cross2d( vAP, vABnorm ) );
 			}
 
-			// Xの座標を求める(AXの長さより計算）
-			float2 pointX = new float2( vSt.x + ( vABnorm.x * lenAX ), vEd.y + ( vAB.y * lenAX ) );
-
 			if( shortestDistance <= r ) {
 				return true;
 			}
 			return false;
 		}
 
+		// 外積.
 		float cross2d( float2 v1, float2 v2 )
 		{
 			return v1.x * v2.y - v1.y * v2.x;
 		}
 
+		// 内積.
 		float inner2d( float2 v1, float2 v2 )
 		{
 			return v1.x * v2.x + v1.y * v2.y;

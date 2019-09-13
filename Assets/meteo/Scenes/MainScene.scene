@@ -25,7 +25,7 @@
         }, {
             "$type": "Meteo.MeteoInfo, meteo",
             "IsActive": true,
-            "BaseSpeed": 10,
+            "BaseSpeed": 200,
             "MoveDir": {
                 "y": -1
             },
@@ -37,7 +37,7 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
             "Value": {
-                "y": 407
+                "y": 300
             }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
@@ -110,6 +110,8 @@
                 "StableTypeHash": 18180907834187969664
             }, {
                 "StableTypeHash": 6703637564649311581
+            }, {
+                "StableTypeHash": 7786480734389485212
             }]
         }]
     }, {
@@ -540,7 +542,9 @@
             "b": 10713985557283966162
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
-            "Value": {}
+            "Value": {
+                "y": -67
+            }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
             "Value": {

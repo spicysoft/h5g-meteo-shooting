@@ -2,6 +2,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Tiny.Core;
 using Unity.Tiny.Core2D;
+using Unity.Tiny.Debugging;
 using Unity.Tiny.Scenes;
 
 namespace Meteo
@@ -26,6 +27,7 @@ namespace Meteo
 					return;
 				if( !meteo.Initialized ) {
 					meteo.Life = 13;
+					meteo.Radius = 100;
 					meteo.Initialized = true;
 					return;
 				}
@@ -52,8 +54,32 @@ namespace Meteo
 				pos.y += spd.y;
 				trans.Value = pos;
 
+				if( pos.y > GameMngrSystem.BorderUp ) {
+					if( meteo.MoveDir.y > 0 )
+						meteo.MoveDir.y *= -1f;
+				}
+				else if( pos.y < GameMngrSystem.BorderLow ) {
+					if( meteo.MoveDir.y < 0 )
+						meteo.MoveDir.y *= -1f;
+				}
+				if( pos.x > GameMngrSystem.BorderRight ) {
+					if( meteo.MoveDir.x > 0 )
+						meteo.MoveDir.x *= -1;
+				}
+				else if( pos.x < GameMngrSystem.BorderLeft ) {
+					if( meteo.MoveDir.x < 0 )
+						meteo.MoveDir.x *= -1;
+				}
+
 				// プレイヤーとの距離の２乗.
-				meteo.DistSq = math.distancesq( trans.Value, playerPos );
+				float distsq = math.distancesq( trans.Value, playerPos );
+				meteo.DistSq = distsq;
+
+				float rr = (PlayerSystem.PlayerR + meteo.Radius) * ( PlayerSystem.PlayerR + meteo.Radius );
+
+				if( distsq < rr ) {
+					//Debug.LogFormatAlways("pl hit {0} {1}", distsq, meteo.RadiusSq);
+				}
 
 				//Debug.LogFormatAlways( "pos {0} {1}", pos.x, pos.y );
 			} );

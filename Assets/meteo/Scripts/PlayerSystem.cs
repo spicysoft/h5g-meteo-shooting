@@ -9,6 +9,11 @@ namespace Meteo
 {
 	public class PlayerSystem : ComponentSystem
 	{
+		// 半径.
+		public const float PlayerR = 32f;
+		public const float PlayerRsq = PlayerR * PlayerR;
+
+
 		protected override void OnUpdate()
 		{
 			var deltaTime = World.TinyEnvironment().frameDeltaTime;
