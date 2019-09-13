@@ -27,7 +27,8 @@
             "IsActive": true,
             "BaseSpeed": 200,
             "MoveDir": {
-                "y": -1
+                "x": 0.7,
+                "y": -0.7
             },
             "HitPos": {}
         }, {
@@ -112,6 +113,8 @@
                 "StableTypeHash": 6703637564649311581
             }, {
                 "StableTypeHash": 7786480734389485212
+            }, {
+                "StableTypeHash": 9295915252447687908
             }]
         }]
     }, {
@@ -542,9 +545,7 @@
             "b": 10713985557283966162
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
-            "Value": {
-                "y": -67
-            }
+            "Value": {}
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
             "Value": {

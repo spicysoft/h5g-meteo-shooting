@@ -26,9 +26,9 @@ namespace Meteo
 				if( !meteo.IsActive )
 					return;
 				if( !meteo.Initialized ) {
-					meteo.Life = 13;
-					meteo.Radius = 100;
-					meteo.Initialized = true;
+//					meteo.Life = 13;
+//					meteo.Radius = 100;
+//					meteo.Initialized = true;
 					return;
 				}
 

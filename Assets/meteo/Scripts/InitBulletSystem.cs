@@ -12,6 +12,7 @@ namespace Meteo
 			float3 playerPos = float3.zero;
 			quaternion playerRot = quaternion.identity;
 
+			// プレイヤーの位置、向き.
 			Entities.ForEach( ( Entity entity, ref PlayerInfo player, ref Translation trans, ref Rotation rot ) => {
 				playerPos = trans.Value;
 				playerRot = rot.Value;
