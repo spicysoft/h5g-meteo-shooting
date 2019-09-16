@@ -1,0 +1,120 @@
+{
+    "FileType": "Scene",
+    "Guid": "bc70c60623c748e7ba3563327c760900",
+    "SerializedVersion": 1,
+    "AssetReferences": [
+        { "Guid": "21d40f05180bc4d3994e421ed2536173", "FileId": 21300000, "Type": 3}],
+    "Entities": [{
+        "Components": [{
+            "$type": "Unity.Tiny.Core2D.Parent, Unity.Tiny.Core2D"
+        }, {
+            "$type": "Unity.Tiny.Core2D.Sprite2DRenderer, Unity.Tiny.Sprite2D",
+            "sprite": "1f1651e0b6344c55534ab156b7dbc79e",
+            "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+            },
+            "blending": 0
+        }, {
+            "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core"
+        }, {
+            "$type": "Meteo.MeteoInfo, meteo",
+            "IsActive": true,
+            "BaseSpeed": 200,
+            "MoveDir": {
+                "x": 0.7,
+                "y": -0.7
+            },
+            "HitPos": {}
+        }, {
+            "$type": "Unity.Entities.EntityGuid, Unity.Entities",
+            "a": 2651750751064179692,
+            "b": 11304508442410479206
+        }, {
+            "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
+            "Value": {
+                "y": 300
+            }
+        }, {
+            "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
+            "Value": {
+                "value": {
+                    "w": 1
+                }
+            }
+        }, {
+            "$type": "Unity.Tiny.Core2D.NonUniformScale, Unity.Tiny.Core2D",
+            "Value": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+            }
+        }, {
+            "$type": "Unity.Tiny.Core2D.LayerSorting, Unity.Tiny.Core2D",
+            "order": 2
+        }, {
+            "$type": "Unity.Tiny.Core2D.Sprite2DRendererOptions, Unity.Tiny.Sprite2D",
+            "size": {
+                "x": 200,
+                "y": 200
+            },
+            "drawMode": 2
+        }, {
+            "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
+            "Elements": [{
+                "c": "M"
+            }, {
+                "c": "e"
+            }, {
+                "c": "t"
+            }, {
+                "c": "e"
+            }, {
+                "c": "o"
+            }]
+        }, {
+            "$type": "Unity.Authoring.Core.ComponentOrder, Unity.Authoring.Core",
+            "Elements": [{
+                "StableTypeHash": 7960064150805274675
+            }, {
+                "StableTypeHash": 793987765392955020
+            }, {
+                "StableTypeHash": 12932679046359085526
+            }, {
+                "StableTypeHash": 12662904853204722592
+            }, {
+                "StableTypeHash": 266869500686333426
+            }, {
+                "StableTypeHash": 9104342357061045742
+            }, {
+                "StableTypeHash": 17378348762221180850
+            }, {
+                "StableTypeHash": 16791256614846730296
+            }, {
+                "StableTypeHash": 874803706151837934
+            }, {
+                "StableTypeHash": 147127668789581756
+            }, {
+                "StableTypeHash": 14708837937828354272
+            }, {
+                "StableTypeHash": 7367305413367468364
+            }, {
+                "StableTypeHash": 14308027802064253921
+            }, {
+                "StableTypeHash": 8897655790713846997
+            }, {
+                "StableTypeHash": 18180907834187969664
+            }, {
+                "StableTypeHash": 6703637564649311581
+            }, {
+                "StableTypeHash": 7786480734389485212
+            }, {
+                "StableTypeHash": 9295915252447687908
+            }, {
+                "StableTypeHash": 10972122671495160174
+            }]
+        }]
+    }]
+}

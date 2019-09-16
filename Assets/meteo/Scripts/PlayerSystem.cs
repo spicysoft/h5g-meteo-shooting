@@ -22,7 +22,7 @@ namespace Meteo
 			bool isInput = false;
 
 			// ジョイスティック.
-			Entities.ForEach( ( Entity entity, ref Joystick joystick ) => {
+			Entities.ForEach( ( ref Joystick joystick ) => {
 				if( joystick.Direction.x != 0f || joystick.Direction.y != 0f ) {
 					moveMagnitude = math.min( 1f, math.distance( float2.zero, joystick.Direction ) );
 					if( moveMagnitude > 0.3f ) {
@@ -35,7 +35,7 @@ namespace Meteo
 			// 近い隕石.
 			float minDist = -1f;
 			float3 minPos = float3.zero;
-			Entities.ForEach( ( Entity entity, ref MeteoInfo meteo, ref Translation trans ) => {
+			Entities.ForEach( ( ref MeteoInfo meteo, ref Translation trans ) => {
 				if( !meteo.IsActive )
 					return;
 				if( !meteo.Initialized ) {
@@ -62,8 +62,20 @@ namespace Meteo
 				// 移動.
 				var position = trans.Value;
 				if( isInput ) {
-					position.x += moveDirection.x * 100f * deltaTime;
-					position.y += moveDirection.y * 100f * deltaTime;
+					float baseSpd = 150f;
+
+					position.x += moveDirection.x * baseSpd * deltaTime;
+					if( position.x < GameMngrSystem.BorderLeft + PlayerR )
+						position.x = GameMngrSystem.BorderLeft + PlayerR;
+					else if( position.x > GameMngrSystem.BorderRight - PlayerR )
+						position.x = GameMngrSystem.BorderRight - PlayerR;
+
+					position.y += moveDirection.y * baseSpd * deltaTime;
+					if( position.y < GameMngrSystem.BorderLow + PlayerR )
+						position.y = GameMngrSystem.BorderLow + PlayerR;
+					else if( position.y > GameMngrSystem.BorderUp - PlayerR )
+						position.y = GameMngrSystem.BorderUp - PlayerR;
+
 					trans.Value = position;
 				}
 
@@ -85,7 +97,7 @@ namespace Meteo
 
 				// 弾.
 				player.Interval += deltaTime;
-				if( player.Interval > 3f ) {
+				if( player.Interval > 0.5f ) {
 					player.Interval = 0;
 					reqBullet = true;
 				}

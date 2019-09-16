@@ -30,6 +30,7 @@ namespace Meteo
 				pos2.y += spd.y;
 				trans.Value = pos2;
 
+#if false
 				// 暫定的に時間で.
 				bullet.Timer += deltaTime;
 				if( bullet.Timer > 0.5f ) {
@@ -37,10 +38,17 @@ namespace Meteo
 					scl.Value.x = 0;    // スケール0にして消す.
 					return;
 				}
+#endif
+				if( pos2.x < GameMngrSystem.BorderLeft || pos2.x > GameMngrSystem.BorderRight
+					|| pos2.y < GameMngrSystem.BorderLow || pos2.y > GameMngrSystem.BorderUp ) {
 
+					bullet.IsActive = false;
+					scl.Value.x = 0;    // スケール0にして消す.
+					return;
+				}
 
 				bool isHit = false;
-				Entities.ForEach( ( Entity meteoEntity, ref MeteoInfo meteo, ref Translation meteoTrans ) => {
+				Entities.ForEach( ( ref MeteoInfo meteo, ref Translation meteoTrans ) => {
 					if( !meteo.IsActive )
 						return;
 					if( !meteo.Initialized )

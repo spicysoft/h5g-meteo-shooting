@@ -11,6 +11,9 @@
             },
             "PrefabHitEff": {
                 "SceneGuid": "eb78730a17634773aad5ffd0ccc65ab0"
+            },
+            "PrefabMeteo": {
+                "SceneGuid": "bc70c60623c748e7ba3563327c760900"
             }
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
@@ -37,6 +40,10 @@
                 "SceneReference": {
                     "SceneGuid": "eb78730a17634773aad5ffd0ccc65ab0"
                 }
+            }, {
+                "SceneReference": {
+                    "SceneGuid": "bc70c60623c748e7ba3563327c760900"
+                }
             }]
         }, {
             "$type": "Unity.Tiny.Scenes.StartupScenes, Unity.Tiny.Scenes",
@@ -55,6 +62,8 @@
                 "StableTypeHash": 16654459336070339646
             }, {
                 "StableTypeHash": 7698766031025695928
+            }, {
+                "StableTypeHash": 6932898262788945419
             }]
         }, {
             "$type": "Unity.Authoring.Core.ConfigurationTag, Unity.Authoring.Core"

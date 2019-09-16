@@ -20,35 +20,50 @@ namespace Meteo
 			float3 playerPos = float3.zero;
 
 			// プレイヤーの位置.
-			Entities.ForEach( ( Entity entity, ref PlayerInfo player, ref Translation trans, ref Rotation rot ) => {
+			Entities.ForEach( ( ref PlayerInfo player, ref Translation trans, ref Rotation rot ) => {
 				playerPos = trans.Value;
 			} );
 
+			// ジェネレート数.
+			int genCnt = 0;
+			Entities.ForEach( ( ref MeteoGenInfo gen ) => {
+				genCnt = gen.GeneratedCnt;
+			} );
 
-			Entities.ForEach( ( Entity entity, ref MeteoInfo meteo, ref Translation trans, ref NonUniformScale scl, ref Sprite2DRendererOptions opt ) => {
+			bool isInit = false;
+			Entities.ForEach( ( ref MeteoInfo meteo, ref Translation trans, ref NonUniformScale scl, ref Sprite2DRendererOptions opt ) => {
 				if( !meteo.IsActive )
 					return;
 				if( !meteo.Initialized ) {
+					isInit = true;
+
 					meteo.Initialized = true;
+					meteo.IsHit = false;
+					meteo.ReqHitEff = false;
+					scl.Value.x = 1f;
+
+
+					// ID.
+					meteo.UniId = ++genCnt;
 
 					// レベル.
 					meteo.Level = _random.NextInt( 4 ); // 0 ~ 4.
 					switch( meteo.Level ) {
 					case 0:
 						meteo.Life = 3;
-						meteo.Radius = 80;
+						meteo.Radius = 50;
 						break;
 					case 1:
 						meteo.Life = 6;
-						meteo.Radius = 120;
+						meteo.Radius = 70;
 						break;
 					case 2:
 						meteo.Life = 10;
-						meteo.Radius = 200;
+						meteo.Radius = 100;
 						break;
 					case 3:
 						meteo.Life = 15;
-						meteo.Radius = 300;
+						meteo.Radius = 150;
 						break;
 					}
 
@@ -66,15 +81,24 @@ namespace Meteo
 					trans.Value = pos;
 
 					// スピード.
-					meteo.BaseSpeed = _random.NextFloat( 50f, 500f );
+					meteo.BaseSpeed = _random.NextFloat( 50f, 200f );
 					// 移動ベクトル.
 					float2 dir = _random.NextFloat2();
 					meteo.MoveDir = math.normalize( dir );
 
-					opt.size.x = meteo.Radius;
-					opt.size.y = meteo.Radius;
+					opt.size.x = meteo.Radius * 2f;
+					opt.size.y = meteo.Radius * 2f;
 				}
 			} );
+
+
+			if( isInit ) {
+				// ジェネレート数更新.
+				Entities.ForEach( ( ref MeteoGenInfo gen ) => {
+					gen.GeneratedCnt = genCnt;
+				} );
+			}
+
 		}
 
 		// プレイヤーと重なっているか?

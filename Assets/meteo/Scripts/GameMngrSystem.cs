@@ -11,10 +11,10 @@ namespace Meteo
 	public class GameMngrSystem : ComponentSystem
 	{
 		// 境界.
-		public const float BorderUp = 500f;
-		public const float BorderLow = -500f;
-		public const float BorderLeft = -500f;
-		public const float BorderRight = 500f;
+		public const float BorderUp = 600f;
+		public const float BorderLow = -600f;
+		public const float BorderLeft = -600f;
+		public const float BorderRight = 600f;
 
 
 
