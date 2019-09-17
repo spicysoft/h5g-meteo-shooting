@@ -1,5 +1,6 @@
 using Unity.Entities;
 using Unity.Tiny.Core;
+using Unity.Tiny.Debugging;
 using Unity.Tiny.Scenes;
 
 namespace Meteo
@@ -11,11 +12,18 @@ namespace Meteo
 			bool reqGen = false;
 
 			Entities.ForEach( ( ref MeteoGenInfo gen ) => {
-				gen.Timer += World.TinyEnvironment().frameDeltaTime;
-				if( gen.Timer > 2f ) {
-					gen.Timer = 0;
-					if( gen.MeteoNum < 10 ) {
-						reqGen = true;
+				// 分裂?
+				if( gen.ReqSplit ) {
+					gen.ReqSplit = false;
+					reqGen = true;
+				}
+				else {
+					gen.Timer += World.TinyEnvironment().frameDeltaTime;
+					if( gen.Timer > 2f ) {
+						gen.Timer = 0;
+						if( gen.MeteoNum < 10 ) {	// 個数制限.
+							reqGen = true;
+						}
 					}
 				}
 			} );

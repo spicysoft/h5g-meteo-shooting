@@ -22,9 +22,10 @@ namespace Meteo
 
 			int meteoNum = 0;
 			bool reqHitEff = false;
+			bool reqSplit = false;
 			//float3 hitEffPos = float3.zero;
 
-			Entities.ForEach( ( ref MeteoInfo meteo, ref Translation trans, ref NonUniformScale scl ) => {
+			Entities.ForEach( ( ref MeteoInfo meteo, ref Translation trans, ref Rotation rot, ref NonUniformScale scl, ref Sprite2DRendererOptions opt ) => {
 				if( !meteo.IsActive || !meteo.Initialized )
 					return;
 
@@ -40,6 +41,18 @@ namespace Meteo
 						scl.Value.x = 0;
 					}
 					else {
+						// 分裂.
+						if( meteo.Level == 3 ) {
+							if( meteo.Life == 10 ) {
+								meteo.Level = 2;
+								meteo.Radius = 100f;
+								meteo.ReqSplit = true;
+								opt.size.x = meteo.Radius * 2f;
+								opt.size.y = meteo.Radius * 2f;
+								reqSplit = true;
+							}
+						}
+
 						meteo.ReqHitEff = true;
 						reqHitEff = true;
 						meteo.IsStop = true;
@@ -48,9 +61,15 @@ namespace Meteo
 					return;
 				}
 
+				// 回転.
+				quaternion now = rot.Value;
+				quaternion zrot = quaternion.RotateZ( meteo.ZrotSpd * deltaTime );
+				rot.Value = math.mul( now, zrot );
+
+
 				if( meteo.IsStop ) {
 					meteo.Timer += World.TinyEnvironment().frameDeltaTime;
-					if( meteo.Timer > 0.1f ) {
+					if( meteo.Timer > 0.05f ) {
 						meteo.IsStop = false;
 					}
 					return;
@@ -109,9 +128,14 @@ namespace Meteo
 			}
 
 
-			// 今の隕石の個数更新.
 			Entities.ForEach( ( ref MeteoGenInfo gen ) => {
+				// 今の隕石の個数更新.
 				gen.MeteoNum = meteoNum;
+
+				// 分裂リクエスト.
+				if( reqSplit ) {
+					gen.ReqSplit = true;
+				}
 			} );
 		}
 

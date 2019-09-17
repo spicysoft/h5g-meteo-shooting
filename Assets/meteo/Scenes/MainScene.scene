@@ -205,7 +205,7 @@
             "$type": "Unity.Tiny.Core2D.Parent, Unity.Tiny.Core2D"
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
-            "Index": 3
+            "Index": 4
         }, {
             "$type": "Unity.Tiny.UILayout.RectTransform, Unity.Tiny.UILayout",
             "anchorMin": {},
@@ -281,6 +281,55 @@
             "$type": "Unity.Tiny.Core2D.Parent, Unity.Tiny.Core2D"
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
+            "Index": 2
+        }, {
+            "$type": "Meteo.InitMeteoInfo, meteo",
+            "SplitPos": {},
+            "SplitDir": {}
+        }, {
+            "$type": "Unity.Entities.EntityGuid, Unity.Entities",
+            "a": 10764564048758590240,
+            "b": 12530924506186907296
+        }, {
+            "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
+            "Elements": [{
+                "c": "I"
+            }, {
+                "c": "n"
+            }, {
+                "c": "i"
+            }, {
+                "c": "t"
+            }, {
+                "c": "M"
+            }, {
+                "c": "e"
+            }, {
+                "c": "t"
+            }, {
+                "c": "e"
+            }, {
+                "c": "o"
+            }]
+        }, {
+            "$type": "Unity.Authoring.Core.ComponentOrder, Unity.Authoring.Core",
+            "Elements": [{
+                "StableTypeHash": 7960064150805274675
+            }, {
+                "StableTypeHash": 793987765392955020
+            }, {
+                "StableTypeHash": 12662904853204722592
+            }, {
+                "StableTypeHash": 874803706151837934
+            }, {
+                "StableTypeHash": 5137637494449529392
+            }]
+        }]
+    }, {
+        "Components": [{
+            "$type": "Unity.Tiny.Core2D.Parent, Unity.Tiny.Core2D"
+        }, {
+            "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
             "Index": 1
         }, {
             "$type": "Meteo.MeteoGenInfo, meteo"
@@ -321,6 +370,12 @@
                 "StableTypeHash": 747256126043098532
             }, {
                 "StableTypeHash": 13466374724249237101
+            }, {
+                "StableTypeHash": 14536888460130930401
+            }, {
+                "StableTypeHash": 1264541868339875140
+            }, {
+                "StableTypeHash": 16161822563044194225
             }]
         }]
     }, {
@@ -472,7 +527,7 @@
             "blending": 0
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
-            "Index": 2
+            "Index": 3
         }, {
             "$type": "Meteo.PlayerInfo, meteo"
         }, {
@@ -566,9 +621,9 @@
                 "height": 960
             },
             "backgroundColor": {
-                "r": 0.1921569,
-                "g": 0.3019608,
-                "b": 0.4745098,
+                "r": 0.09433961,
+                "g": 0.09433961,
+                "b": 0.09433961,
                 "a": 1
             },
             "clearFlags": 1,
@@ -638,7 +693,7 @@
             "blending": 0
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
-            "Index": 4
+            "Index": 5
         }, {
             "$type": "Unity.Tiny.UILayout.RectTransform, Unity.Tiny.UILayout",
             "anchorMin": {},

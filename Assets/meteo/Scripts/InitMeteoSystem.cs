@@ -1,10 +1,11 @@
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Tiny.Core2D;
-
+using Unity.Tiny.Debugging;
 
 namespace Meteo
 {
+	[UpdateAfter(typeof(MeteoGenSystem))]
 	public class InitMeteoSystem : ComponentSystem
 	{
 		Random _random;
@@ -20,17 +21,55 @@ namespace Meteo
 			float3 playerPos = float3.zero;
 
 			// プレイヤーの位置.
-			Entities.ForEach( ( ref PlayerInfo player, ref Translation trans, ref Rotation rot ) => {
+			Entities.ForEach( ( ref PlayerInfo player, ref Translation trans ) => {
 				playerPos = trans.Value;
 			} );
 
-			// ジェネレート数.
+			// ジェネレート数
 			int genCnt = 0;
 			Entities.ForEach( ( ref MeteoGenInfo gen ) => {
 				genCnt = gen.GeneratedCnt;
 			} );
 
+			// 分裂あるか?
+			bool reqSplit = false;
+			float3 splitPos = float3.zero;
+			float2 splitDir = float2.zero;
+			Entities.ForEach( ( ref MeteoInfo meteo, ref Translation trans ) => {
+				if( !meteo.IsActive || !meteo.Initialized )
+					return;
+
+				if( meteo.ReqSplit ) {
+					meteo.ReqSplit = false;
+					reqSplit = true;
+					splitPos = trans.Value;
+					splitPos.y += 1f;
+					splitDir = meteo.MoveDir;
+				}
+			} );
+
+			// 分裂情報とっておく.
+			if( reqSplit ) {
+				Entities.ForEach( ( ref InitMeteoInfo info ) => {
+					info.InitSplit = true;
+					info.SplitPos = splitPos;
+					info.SplitDir = splitDir;
+				} );
+			}
+
+			// 改めて、分裂あるか?
+			Entities.ForEach( ( ref InitMeteoInfo info ) => {
+				if( info.InitSplit ) {
+					reqSplit = true;
+					splitPos = info.SplitPos;
+					splitDir = info.SplitDir;
+				}
+			} );
+
+
+
 			bool isInit = false;
+			bool isSplitSet = false;
 			Entities.ForEach( ( ref MeteoInfo meteo, ref Translation trans, ref NonUniformScale scl, ref Sprite2DRendererOptions opt ) => {
 				if( !meteo.IsActive )
 					return;
@@ -42,12 +81,27 @@ namespace Meteo
 					meteo.ReqHitEff = false;
 					scl.Value.x = 1f;
 
-
 					// ID.
 					meteo.UniId = ++genCnt;
 
+					if( reqSplit ) {
+						isSplitSet = true;
+						reqSplit = false;
+						meteo.Level = 2;
+						meteo.Life = 10;
+						meteo.Radius = 100;
+						trans.Value = splitPos;
+						meteo.ZrotSpd = math.radians( _random.NextFloat( -60f, 60f ) );
+						meteo.BaseSpeed = _random.NextFloat( 50f, 150f );
+						meteo.MoveDir = -splitDir;
+						opt.size.x = meteo.Radius * 2f;
+						opt.size.y = meteo.Radius * 2f;
+						return;
+					}
+
 					// レベル.
-					meteo.Level = _random.NextInt( 4 ); // 0 ~ 4.
+					meteo.Level = _random.NextInt( 4 ); // 0 ~ 3.
+					//meteo.Level = 3;
 					switch( meteo.Level ) {
 					case 0:
 						meteo.Life = 3;
@@ -80,6 +134,8 @@ namespace Meteo
 					}
 					trans.Value = pos;
 
+					meteo.ZrotSpd = math.radians( _random.NextFloat( -60f, 60f ) );
+
 					// スピード.
 					meteo.BaseSpeed = _random.NextFloat( 50f, 200f );
 					// 移動ベクトル.
@@ -96,6 +152,14 @@ namespace Meteo
 				// ジェネレート数更新.
 				Entities.ForEach( ( ref MeteoGenInfo gen ) => {
 					gen.GeneratedCnt = genCnt;
+				} );
+			}
+
+			if( isSplitSet ) {
+				Entities.ForEach( ( ref InitMeteoInfo info ) => {
+					if( info.InitSplit ) {
+						info.InitSplit = false;
+					}
 				} );
 			}
 
