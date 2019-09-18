@@ -105,30 +105,40 @@ namespace Meteo
 					switch( meteo.Level ) {
 					case 0:
 						meteo.Life = 3;
-						meteo.Radius = 50;
+						meteo.Radius = 80;
 						break;
 					case 1:
 						meteo.Life = 6;
-						meteo.Radius = 70;
+						meteo.Radius = 110;
 						break;
 					case 2:
 						meteo.Life = 10;
-						meteo.Radius = 100;
+						meteo.Radius = 140;
 						break;
 					case 3:
 						meteo.Life = 15;
-						meteo.Radius = 150;
+						meteo.Radius = 170;
 						break;
 					}
 
 					// ポジション.
-					float innerRange = 200f;
+					float innerRange = 300f;
 					float range = GameMngrSystem.BorderUp - 100f - innerRange;
-					float x = _random.NextFloat( -range, range ) + innerRange;
-					float y = _random.NextFloat( -range, range ) + innerRange;
+					// todo 長方形対応.
+					float x = _random.NextFloat( -range, range );
+					if( x > 0 )
+						x += innerRange;
+					else if( x < 0 )
+						x -= innerRange;
+					float y = _random.NextFloat( -range, range );
+					if( y > 0 )
+						y += innerRange;
+					else if( y < 0 )
+						y -= innerRange;
 					float3 pos = new float3( x, y, 0 );
+
 					// プレイヤーと重ならないように.
-					if( isHitPlayer( pos, meteo.Radius, playerPos) ) {
+					if( isHitPlayer( pos, meteo.Radius * 1.2f, playerPos) ) {
 						pos.x *= -1f;
 						pos.y *= -1f;
 					}

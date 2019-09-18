@@ -7,6 +7,7 @@ namespace Meteo
 	{
 		public SceneReference PrefabBullet;
 		public SceneReference PrefabHitEff;
+		public SceneReference PrefabExplEff;
 		public SceneReference PrefabMeteo;
 
 		//public SceneReference TitleScn;

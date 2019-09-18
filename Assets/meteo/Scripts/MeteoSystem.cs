@@ -23,6 +23,7 @@ namespace Meteo
 			int meteoNum = 0;
 			bool reqHitEff = false;
 			bool reqSplit = false;
+			bool reqExpl = false;
 			//float3 hitEffPos = float3.zero;
 
 			Entities.ForEach( ( ref MeteoInfo meteo, ref Translation trans, ref Rotation rot, ref NonUniformScale scl, ref Sprite2DRendererOptions opt ) => {
@@ -39,17 +40,23 @@ namespace Meteo
 						// 消す.
 						meteo.IsActive = false;
 						scl.Value.x = 0;
+						// 爆発エフェクト.
+						meteo.ReqExpl = true;
+						reqExpl = true;
 					}
 					else {
 						// 分裂.
 						if( meteo.Level == 3 ) {
 							if( meteo.Life == 10 ) {
 								meteo.Level = 2;
-								meteo.Radius = 100f;
+								meteo.Radius = 140f;
 								meteo.ReqSplit = true;
 								opt.size.x = meteo.Radius * 2f;
 								opt.size.y = meteo.Radius * 2f;
 								reqSplit = true;
+								// 爆発エフェクト.
+								meteo.ReqExpl = true;
+								reqExpl = true;
 							}
 						}
 
@@ -122,9 +129,48 @@ namespace Meteo
 			} );
 
 			if( reqHitEff ) {
+				bool recycled = false;
+				Entities.ForEach( ( Entity entity, ref HitEffInfo info ) => {
+					if( !recycled ) {
+						if( !info.IsActive ) {
+							info.IsActive = true;
+							info.Initialized = false;
+							recycled = true;
+						}
+					}
+				} );
+
+				if( !recycled ) {
+					var env = World.TinyEnvironment();
+					SceneReference meteoBase = env.GetConfigData<GameConfig>().PrefabHitEff;
+					SceneService.LoadSceneAsync( meteoBase );
+				}
+
+#if false
 				var env = World.TinyEnvironment();
 				SceneReference bulletBase = env.GetConfigData<GameConfig>().PrefabHitEff;
+				//SceneReference bulletBase = env.GetConfigData<GameConfig>().PrefabExplEff;
 				SceneService.LoadSceneAsync( bulletBase );
+#endif
+			}
+
+			if( reqExpl ) {
+				bool recycled = false;
+				Entities.ForEach( ( Entity entity, ref ExplEffInfo info ) => {
+					if( !recycled ) {
+						if( !info.IsActive ) {
+							info.IsActive = true;
+							info.Initialized = false;
+							recycled = true;
+						}
+					}
+				} );
+
+				if( !recycled ) {
+					var env = World.TinyEnvironment();
+					SceneReference meteoBase = env.GetConfigData<GameConfig>().PrefabExplEff;
+					SceneService.LoadSceneAsync( meteoBase );
+				}
 			}
 
 

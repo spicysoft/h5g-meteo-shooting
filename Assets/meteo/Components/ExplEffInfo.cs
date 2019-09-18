@@ -3,7 +3,7 @@ using Unity.Mathematics;
 
 namespace Meteo
 {
-	public struct SimpleEffInfo : IComponentData
+	public struct ExplEffInfo : IComponentData
 	{
 		public bool IsActive;
 		public bool Initialized;

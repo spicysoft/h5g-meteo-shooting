@@ -5,7 +5,8 @@
     "AssetReferences": [
         { "Guid": "5167673342fa54a349630f9c121ebba4", "FileId": 21300000, "Type": 3},
         { "Guid": "21d40f05180bc4d3994e421ed2536173", "FileId": 21300000, "Type": 3},
-        { "Guid": "acabefed2fbad43d0824531cfb46f7c7", "FileId": 21300000, "Type": 3}],
+        { "Guid": "acabefed2fbad43d0824531cfb46f7c7", "FileId": 21300000, "Type": 3},
+        { "Guid": "09695570d2eff4f2495ab74c745daf43", "FileId": 21300000, "Type": 3}],
     "Entities": [{
         "Components": [{
             "$type": "Unity.Tiny.Core2D.Parent, Unity.Tiny.Core2D",
@@ -109,8 +110,8 @@
                 "y": 0.5
             },
             "sizeDelta": {
-                "x": 50,
-                "y": 50
+                "x": 60,
+                "y": 60
             },
             "anchoredPosition": {},
             "pivot": {
@@ -142,8 +143,8 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRendererOptions, Unity.Tiny.Sprite2D",
             "size": {
-                "x": 1,
-                "y": 1
+                "x": 60,
+                "y": 60
             },
             "drawMode": 2
         }, {
@@ -412,11 +413,11 @@
                 "y": 0.5
             },
             "sizeDelta": {
-                "x": 100,
-                "y": 100
+                "x": 120,
+                "y": 120
             },
             "anchoredPosition": {
-                "y": -353.9
+                "y": -300
             },
             "pivot": {
                 "x": 0.5,
@@ -451,8 +452,8 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRendererOptions, Unity.Tiny.Sprite2D",
             "size": {
-                "x": 100,
-                "y": 100
+                "x": 120,
+                "y": 120
             },
             "drawMode": 2
         }, {
@@ -505,11 +506,11 @@
             }, {
                 "StableTypeHash": 11301794271907081408
             }, {
-                "StableTypeHash": 147127668789581756
-            }, {
                 "StableTypeHash": 5134415344926753476
             }, {
                 "StableTypeHash": 7040879799975605936
+            }, {
+                "StableTypeHash": 147127668789581756
             }]
         }]
     }, {
@@ -615,15 +616,14 @@
             "b": 11640284941756450259
         }, {
             "$type": "Unity.Tiny.Core2D.Camera2D, Unity.Tiny.Core2D",
-            "halfVerticalSize": 1000,
+            "halfVerticalSize": 1500,
             "rect": {
                 "width": 540,
                 "height": 960
             },
             "backgroundColor": {
-                "r": 0.09433961,
-                "g": 0.09433961,
-                "b": 0.09433961,
+                "r": 0.05038531,
+                "b": 0.6603774,
                 "a": 1
             },
             "clearFlags": 1,
@@ -685,30 +685,17 @@
             "$type": "Unity.Tiny.Core2D.Parent, Unity.Tiny.Core2D"
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRenderer, Unity.Tiny.Sprite2D",
+            "sprite": "39db77e3a1ecf4b7bf80ba385bf428b5",
             "color": {
-                "g": 0.1102702,
-                "b": 0.490566,
+                "r": 0.1320755,
+                "g": 0.1320755,
+                "b": 0.1320755,
                 "a": 1
             },
             "blending": 0
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
             "Index": 5
-        }, {
-            "$type": "Unity.Tiny.UILayout.RectTransform, Unity.Tiny.UILayout",
-            "anchorMin": {},
-            "anchorMax": {
-                "x": 1,
-                "y": 1
-            },
-            "sizeDelta": {
-                "y": 100
-            },
-            "anchoredPosition": {},
-            "pivot": {
-                "x": 0.5,
-                "y": 0.5
-            }
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 16596108910756775846,
@@ -735,7 +722,8 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRendererOptions, Unity.Tiny.Sprite2D",
             "size": {
-                "y": 100
+                "x": 1600,
+                "y": 1600
             },
             "drawMode": 2
         }, {
@@ -766,14 +754,8 @@
             }, {
                 "StableTypeHash": 874803706151837934
             }, {
-                "StableTypeHash": 11301794271907081408
-            }, {
                 "StableTypeHash": 147127668789581756
-            }, {
-                "StableTypeHash": 8144720687316769559
             }]
-        }, {
-            "$type": "Unity.Entities.Disabled, Unity.Entities"
         }]
     }]
 }
