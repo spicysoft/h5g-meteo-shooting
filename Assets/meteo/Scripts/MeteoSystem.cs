@@ -48,6 +48,7 @@ namespace Meteo
 						// 分裂.
 						if( meteo.Level == 3 ) {
 							if( meteo.Life == 10 ) {
+								// 分裂後小さくなる.
 								meteo.Level = 2;
 								meteo.Radius = 140f;
 								meteo.ReqSplit = true;

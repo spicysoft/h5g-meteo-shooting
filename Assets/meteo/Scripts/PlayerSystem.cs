@@ -61,6 +61,7 @@ namespace Meteo
 
 				// 移動.
 				var position = trans.Value;
+				player.PrePos = position;		// 取っておく.
 				if( isInput ) {
 					float baseSpd = 150f;
 

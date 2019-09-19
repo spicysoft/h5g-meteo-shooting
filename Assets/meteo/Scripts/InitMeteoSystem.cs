@@ -89,7 +89,7 @@ namespace Meteo
 						reqSplit = false;
 						meteo.Level = 2;
 						meteo.Life = 10;
-						meteo.Radius = 100;
+						meteo.Radius = 140;
 						trans.Value = splitPos;
 						meteo.ZrotSpd = math.radians( _random.NextFloat( -60f, 60f ) );
 						meteo.BaseSpeed = _random.NextFloat( 50f, 150f );

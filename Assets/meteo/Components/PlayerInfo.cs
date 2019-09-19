@@ -1,4 +1,5 @@
 using Unity.Entities;
+using Unity.Mathematics;
 
 namespace Meteo
 {
@@ -6,5 +7,6 @@ namespace Meteo
 	{
 		public bool Initialized;
 		public float Interval;
+		public float3 PrePos;
 	}
 }
