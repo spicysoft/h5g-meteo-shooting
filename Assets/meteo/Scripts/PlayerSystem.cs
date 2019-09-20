@@ -63,7 +63,7 @@ namespace Meteo
 				var position = trans.Value;
 				player.PrePos = position;		// 取っておく.
 				if( isInput ) {
-					float baseSpd = 150f;
+					float baseSpd = 180f;
 
 					position.x += moveDirection.x * baseSpd * deltaTime;
 					if( position.x < GameMngrSystem.BorderLeft + PlayerR )

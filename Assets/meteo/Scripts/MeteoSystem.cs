@@ -4,6 +4,7 @@ using Unity.Tiny.Core;
 using Unity.Tiny.Core2D;
 using Unity.Tiny.Debugging;
 using Unity.Tiny.Scenes;
+using Unity.Tiny.Text;
 
 namespace Meteo
 {
@@ -24,6 +25,7 @@ namespace Meteo
 			bool reqHitEff = false;
 			bool reqSplit = false;
 			bool reqExpl = false;
+			int score = 0;
 			//float3 hitEffPos = float3.zero;
 
 			Entities.ForEach( ( ref MeteoInfo meteo, ref Translation trans, ref Rotation rot, ref NonUniformScale scl, ref Sprite2DRendererOptions opt ) => {
@@ -43,6 +45,7 @@ namespace Meteo
 						// 爆発エフェクト.
 						meteo.ReqExpl = true;
 						reqExpl = true;
+						score += 100;
 					}
 					else {
 						// 分裂.
@@ -97,19 +100,19 @@ namespace Meteo
 				newPos.y += spd.y;
 				//trans.Value = newPos;
 
-				if( newPos.y > GameMngrSystem.BorderUp ) {
+				if( newPos.y > GameMngrSystem.BorderUp - meteo.Radius ) {
 					if( meteo.MoveDir.y > 0 )
 						meteo.MoveDir.y *= -1f;
 				}
-				else if( newPos.y < GameMngrSystem.BorderLow ) {
+				else if( newPos.y < GameMngrSystem.BorderLow + meteo.Radius ) {
 					if( meteo.MoveDir.y < 0 )
 						meteo.MoveDir.y *= -1f;
 				}
-				if( newPos.x > GameMngrSystem.BorderRight ) {
+				if( newPos.x > GameMngrSystem.BorderRight - meteo.Radius ) {
 					if( meteo.MoveDir.x > 0 )
 						meteo.MoveDir.x *= -1;
 				}
-				else if( newPos.x < GameMngrSystem.BorderLeft ) {
+				else if( newPos.x < GameMngrSystem.BorderLeft + meteo.Radius ) {
 					if( meteo.MoveDir.x < 0 )
 						meteo.MoveDir.x *= -1;
 				}
@@ -146,13 +149,6 @@ namespace Meteo
 					SceneReference meteoBase = env.GetConfigData<GameConfig>().PrefabHitEff;
 					SceneService.LoadSceneAsync( meteoBase );
 				}
-
-#if false
-				var env = World.TinyEnvironment();
-				SceneReference bulletBase = env.GetConfigData<GameConfig>().PrefabHitEff;
-				//SceneReference bulletBase = env.GetConfigData<GameConfig>().PrefabExplEff;
-				SceneService.LoadSceneAsync( bulletBase );
-#endif
 			}
 
 			if( reqExpl ) {
@@ -172,6 +168,18 @@ namespace Meteo
 					SceneReference meteoBase = env.GetConfigData<GameConfig>().PrefabExplEff;
 					SceneService.LoadSceneAsync( meteoBase );
 				}
+			}
+
+			// スコア.
+			if( score > 0 ) {
+				Entities.ForEach( ( ref GameMngr mngr ) => {
+					mngr.Score += score;
+					score = mngr.Score;
+				} );
+				// スコア表示.
+				Entities.WithAll<TextScoreTag>().ForEach( ( Entity entity ) => {
+					EntityManager.SetBufferFromString<TextString>( entity, score.ToString() );
+				} );
 			}
 
 

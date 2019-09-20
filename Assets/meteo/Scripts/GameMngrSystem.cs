@@ -63,9 +63,6 @@ namespace Meteo
 					return;
 				}
 
-
-				score = mngr.Score;
-
 				// タイマー.
 				mngr.GameTimer += dt;
 #if false

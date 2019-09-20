@@ -123,7 +123,7 @@ namespace Meteo
 
 					// ポジション.
 					float innerRange = 300f;
-					float range = GameMngrSystem.BorderUp - 100f - innerRange;
+					float range = GameMngrSystem.BorderUp - meteo.Radius - innerRange;
 					// todo 長方形対応.
 					float x = _random.NextFloat( -range, range );
 					if( x > 0 )
