@@ -7,7 +7,11 @@
         { "Guid": "ec635c8fd88e24f03b3b090066415598", "FileId": 11400000, "Type": 2},
         { "Guid": "5167673342fa54a349630f9c121ebba4", "FileId": 21300000, "Type": 3},
         { "Guid": "21d40f05180bc4d3994e421ed2536173", "FileId": 21300000, "Type": 3},
-        { "Guid": "acabefed2fbad43d0824531cfb46f7c7", "FileId": 21300000, "Type": 3},
+        { "Guid": "0fe882fdd22554742a777b1ceee95738", "FileId": 21300000, "Type": 3},
+        { "Guid": "5bc41a8685a8149e3b2168e5353263db", "FileId": 21300000, "Type": 3},
+        { "Guid": "b8b7d3d944b284240b912f3bfff769e7", "FileId": 21300000, "Type": 3},
+        { "Guid": "f46757a968d624306a15d137a72f6f8b", "FileId": 21300000, "Type": 3},
+        { "Guid": "c5e77e3cce05b4a2dbe2ffdf36e5356b", "FileId": 21300000, "Type": 3},
         { "Guid": "933eb6314245c4f4989a92cfbd9e7976", "FileId": 21300000, "Type": 3}],
     "Entities": [{
         "Components": [{
@@ -885,7 +889,7 @@
             }
         }, {
             "$type": "Unity.Tiny.Core2D.LayerSorting, Unity.Tiny.Core2D",
-            "order": 100
+            "order": 90
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRendererOptions, Unity.Tiny.Sprite2D",
             "size": {
@@ -1032,10 +1036,118 @@
         }]
     }, {
         "Components": [{
+            "$type": "Unity.Tiny.Core2D.Parent, Unity.Tiny.Core2D",
+            "Value": "cbd96e91a1eb4d5894afb91966938cd2"
+        }, {
+            "$type": "Unity.Tiny.Core2D.Sprite2DRenderer, Unity.Tiny.Sprite2D",
+            "sprite": "59095b4d7084af5b1e767d8a0b1441e8",
+            "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+            },
+            "blending": 0
+        }, {
+            "$type": "Unity.Tiny.Core2D.Sprite2DSequencePlayer, Unity.Tiny.Sprite2D",
+            "sequence": "c54eeef28f484af684b555058ee43b36",
+            "speed": 1,
+            "loop": 0
+        }, {
+            "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core"
+        }, {
+            "$type": "Unity.Entities.EntityGuid, Unity.Entities",
+            "a": 14217563799208610550,
+            "b": 9562642866151635766
+        }, {
+            "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
+            "Value": {
+                "y": -30
+            }
+        }, {
+            "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
+            "Value": {
+                "value": {
+                    "w": 1
+                }
+            }
+        }, {
+            "$type": "Unity.Tiny.Core2D.NonUniformScale, Unity.Tiny.Core2D",
+            "Value": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+            }
+        }, {
+            "$type": "Unity.Tiny.Core2D.LayerSorting, Unity.Tiny.Core2D",
+            "order": 2
+        }, {
+            "$type": "Unity.Tiny.Core2D.Sprite2DRendererOptions, Unity.Tiny.Sprite2D",
+            "size": {
+                "x": 80,
+                "y": 80
+            },
+            "drawMode": 2
+        }, {
+            "$type": "Unity.Tiny.Core2D.Sprite2DSequence, Unity.Tiny.Sprite2D",
+            "Elements": [{
+                "e": "59095b4d7084af5b1e767d8a0b1441e8"
+            }, {
+                "e": "f278043f9f96841579cff2ca46b9cc24"
+            }, {
+                "e": "22c797e499c452fffd5dc48e6f2527d4"
+            }, {
+                "e": "7b073523d8f2f528a28d847e87acae37"
+            }]
+        }, {
+            "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
+            "Elements": [{
+                "c": "B"
+            }, {
+                "c": "u"
+            }, {
+                "c": "r"
+            }, {
+                "c": "n"
+            }, {
+                "c": "e"
+            }, {
+                "c": "r"
+            }]
+        }, {
+            "$type": "Unity.Authoring.Core.ComponentOrder, Unity.Authoring.Core",
+            "Elements": [{
+                "StableTypeHash": 7960064150805274675
+            }, {
+                "StableTypeHash": 793987765392955020
+            }, {
+                "StableTypeHash": 12932679046359085526
+            }, {
+                "StableTypeHash": 12662904853204722592
+            }, {
+                "StableTypeHash": 266869500686333426
+            }, {
+                "StableTypeHash": 9104342357061045742
+            }, {
+                "StableTypeHash": 17378348762221180850
+            }, {
+                "StableTypeHash": 16791256614846730296
+            }, {
+                "StableTypeHash": 874803706151837934
+            }, {
+                "StableTypeHash": 16033114912968864438
+            }, {
+                "StableTypeHash": 13688764092462950983
+            }, {
+                "StableTypeHash": 147127668789581756
+            }]
+        }]
+    }, {
+        "Components": [{
             "$type": "Unity.Tiny.Core2D.Parent, Unity.Tiny.Core2D"
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRenderer, Unity.Tiny.Sprite2D",
-            "sprite": "5f1dffefc99c984673229c536ed5a292",
+            "sprite": "fdc0c4df2df15f559c2363f0a879b89e",
             "color": {
                 "r": 1,
                 "g": 1,
@@ -1076,8 +1188,8 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRendererOptions, Unity.Tiny.Sprite2D",
             "size": {
-                "x": 64,
-                "y": 64
+                "x": 80,
+                "y": 80
             },
             "drawMode": 2
         }, {
@@ -1330,6 +1442,8 @@
                 "StableTypeHash": 5071839840606345047
             }, {
                 "StableTypeHash": 7297317235098025247
+            }, {
+                "StableTypeHash": 12819353791341141764
             }]
         }]
     }, {
@@ -1417,8 +1531,6 @@
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
             "Index": 7
         }, {
-            "$type": "Meteo.BgTag, meteo"
-        }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 16596108910756775846,
             "b": 9321834768584728763
@@ -1491,6 +1603,8 @@
             }, {
                 "StableTypeHash": 4919460917663464889
             }]
+        }, {
+            "$type": "Meteo.BgTag, meteo"
         }]
     }]
 }

@@ -10,6 +10,15 @@ namespace Meteo
 	{
 		protected override void OnUpdate()
 		{
+			bool IsPause = false;
+			Entities.ForEach( ( ref GameMngr mngr ) => {
+				if( mngr.IsPause ) {
+					IsPause = true;
+				}
+			} );
+			if( IsPause )
+				return;
+
 			float3 pcPos = float3.zero;
 			float3 pcPrePos = float3.zero;
 

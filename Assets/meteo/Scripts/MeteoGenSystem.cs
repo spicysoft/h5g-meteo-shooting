@@ -9,9 +9,28 @@ namespace Meteo
 	{
 		protected override void OnUpdate()
 		{
+			bool IsPause = false;
+			Entities.ForEach( ( ref GameMngr mngr ) => {
+				if( mngr.IsPause ) {
+					IsPause = true;
+				}
+			} );
+			if( IsPause )
+				return;
+
+
 			bool reqGen = false;
 
 			Entities.ForEach( ( ref MeteoGenInfo gen ) => {
+				if( !gen.Initialized ) {
+					gen.Initialized = true;
+					gen.ReqSplit = false;
+					gen.Timer = 0;
+					gen.MeteoNum = 0;
+					gen.GeneratedCnt = 0;
+					return;
+				}
+
 				// 分裂?
 				if( gen.ReqSplit ) {
 					gen.ReqSplit = false;

@@ -16,6 +16,15 @@ namespace Meteo
 
 		protected override void OnUpdate()
 		{
+			bool IsPause = false;
+			Entities.ForEach( ( ref GameMngr mngr ) => {
+				if( mngr.IsPause ) {
+					IsPause = true;
+				}
+			} );
+			if( IsPause )
+				return;
+
 			var deltaTime = World.TinyEnvironment().frameDeltaTime;
 			var moveDirection = float2.zero;
 			var moveMagnitude = 0f;
@@ -56,6 +65,8 @@ namespace Meteo
 			Entities.ForEach( ( Entity entity, ref PlayerInfo player, ref Translation trans, ref Rotation rot ) => {
 				if( !player.Initialized ) {
 					player.Initialized = true;
+					trans.Value = float3.zero;
+					rot.Value = quaternion.identity;
 					return;
 				}
 

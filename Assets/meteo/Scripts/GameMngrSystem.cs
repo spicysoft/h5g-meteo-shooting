@@ -34,7 +34,7 @@ namespace Meteo
 			Entities.ForEach( ( ref GameMngr mngr ) => {
 
 				float dt = World.TinyEnvironment().frameDeltaTime;
-#if false
+
 				switch( mngr.Mode ) {
 				case MdTitle:
 					mngr.Mode = MdGame;
@@ -56,7 +56,7 @@ namespace Meteo
 					break;
 
 				}
-#endif
+
 
 				if( mngr.IsPause ) {
 					//isPause = true;
@@ -82,31 +82,24 @@ namespace Meteo
 					EntityManager.SetBufferFromString<TextString>( entity, t.ToString() );
 				} );
 			}
-
+#endif
 			if( reqResult ) {
+#if true
 				// ゲームオーバーシーンアンロード.
-				SceneReference panelBase = new SceneReference();
-				panelBase = World.TinyEnvironment().GetConfigData<GameConfig>().GameOverScn;
-				SceneService.UnloadAllSceneInstances( panelBase );
+				SceneReference gameoverScn = World.TinyEnvironment().GetConfigData<GameConfig>().GameOverScn;
+				SceneService.UnloadAllSceneInstances( gameoverScn );
 				// リザルト表示.
-				//SceneReference panelBase = new SceneReference();
-				panelBase = World.TinyEnvironment().GetConfigData<GameConfig>().ResultScn;
-				SceneService.LoadSceneAsync( panelBase );
+				SceneReference resultScn = World.TinyEnvironment().GetConfigData<GameConfig>().ResultScn;
+				SceneService.LoadSceneAsync( resultScn );
+#endif
 			}
 			else if( reqGameOver ) {
 				// ゲームオーバー表示.
 				SceneReference panelBase = new SceneReference();
 				panelBase = World.TinyEnvironment().GetConfigData<GameConfig>().GameOverScn;
 				SceneService.LoadSceneAsync( panelBase );
-
-				// ブロック削除.
-				var env = World.TinyEnvironment();
-				SceneService.UnloadAllSceneInstances( env.GetConfigData<GameConfig>().PrefabBlock );
-				SceneService.UnloadAllSceneInstances( env.GetConfigData<GameConfig>().PrefabBlockStay );
-				SceneService.UnloadAllSceneInstances( env.GetConfigData<GameConfig>().PrefabStar );
-
 			}
-#endif
+
 
 		}
 

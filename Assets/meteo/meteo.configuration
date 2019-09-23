@@ -17,6 +17,18 @@
             },
             "PrefabMeteo": {
                 "SceneGuid": "bc70c60623c748e7ba3563327c760900"
+            },
+            "TitleScn": {
+                "SceneGuid": "cbc72923d44c4e819465d628f1bd9dd7"
+            },
+            "MainScn": {
+                "SceneGuid": "61ecf2f6515b46b4971213cc5295f67f"
+            },
+            "GameOverScn": {
+                "SceneGuid": "b758ecb48f54467bb5dc7e5a81f2ecd7"
+            },
+            "ResultScn": {
+                "SceneGuid": "05834f5109614f2daa8ccea61672a88d"
             }
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
@@ -51,12 +63,24 @@
                 "SceneReference": {
                     "SceneGuid": "9195d7e50ef449feafd6878d0fdd65ce"
                 }
+            }, {
+                "SceneReference": {
+                    "SceneGuid": "cbc72923d44c4e819465d628f1bd9dd7"
+                }
+            }, {
+                "SceneReference": {
+                    "SceneGuid": "b758ecb48f54467bb5dc7e5a81f2ecd7"
+                }
+            }, {
+                "SceneReference": {
+                    "SceneGuid": "05834f5109614f2daa8ccea61672a88d"
+                }
             }]
         }, {
             "$type": "Unity.Tiny.Scenes.StartupScenes, Unity.Tiny.Scenes",
             "Elements": [{
                 "SceneReference": {
-                    "SceneGuid": "61ecf2f6515b46b4971213cc5295f67f"
+                    "SceneGuid": "cbc72923d44c4e819465d628f1bd9dd7"
                 }
             }]
         }, {
@@ -73,6 +97,12 @@
                 "StableTypeHash": 6932898262788945419
             }, {
                 "StableTypeHash": 3522017239443402987
+            }, {
+                "StableTypeHash": 10915636786357839922
+            }, {
+                "StableTypeHash": 13030350121737878856
+            }, {
+                "StableTypeHash": 2156062858379284603
             }]
         }, {
             "$type": "Unity.Authoring.Core.ConfigurationTag, Unity.Authoring.Core"

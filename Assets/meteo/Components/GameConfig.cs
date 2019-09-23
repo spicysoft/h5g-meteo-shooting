@@ -10,8 +10,9 @@ namespace Meteo
 		public SceneReference PrefabExplEff;
 		public SceneReference PrefabMeteo;
 
-		//public SceneReference TitleScn;
-		//public SceneReference GameOverScn;
-		//public SceneReference ResultScn;
+		public SceneReference TitleScn;
+		public SceneReference MainScn;
+		public SceneReference GameOverScn;
+		public SceneReference ResultScn;
 	}
 }

@@ -4,6 +4,7 @@ namespace Meteo
 {
 	public struct MeteoGenInfo : IComponentData
 	{
+		public bool Initialized;
 		public bool ReqSplit;       // 分裂リクエスト.
 		public float Timer;
 		public int GeneratedCnt;	// 生成した隕石の数.

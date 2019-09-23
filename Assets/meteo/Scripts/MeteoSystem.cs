@@ -12,6 +12,15 @@ namespace Meteo
 	{
 		protected override void OnUpdate()
 		{
+			bool IsPause = false;
+			Entities.ForEach( ( ref GameMngr mngr ) => {
+				if( mngr.IsPause ) {
+					IsPause = true;
+				}
+			} );
+			if( IsPause )
+				return;
+
 			var deltaTime = World.TinyEnvironment().frameDeltaTime;
 			float3 playerPos = float3.zero;
 
@@ -126,7 +135,11 @@ namespace Meteo
 				float rr = (PlayerSystem.PlayerR + meteo.Radius) * ( PlayerSystem.PlayerR + meteo.Radius );
 
 				if( distsq < rr ) {
-					//Debug.LogFormatAlways("pl hit {0} {1}", distsq, meteo.RadiusSq);
+					Debug.LogFormatAlways("pl hit {0} {1}", distsq, meteo.Radius);
+					Entities.ForEach( ( ref GameMngr mngr ) => {
+						mngr.IsPause = true;
+						mngr.ReqGameOver = true;
+					} );
 				}
 
 				//Debug.LogFormatAlways( "pos {0} {1}", pos.x, pos.y );
