@@ -25,6 +25,7 @@ namespace Meteo
 				var env = World.TinyEnvironment();
 				SceneService.UnloadAllSceneInstances( env.GetConfigData<GameConfig>().ResultScn );
 
+				// ゲームマネージャ.
 				Entities.ForEach( ( ref GameMngr mngr ) => {
 					mngr.IsPause = false;
 					mngr.Mode = GameMngrSystem.MdGame;
@@ -39,8 +40,18 @@ namespace Meteo
 				} );
 
 				// プレイヤー.
-				Entities.ForEach( ( Entity entity, ref PlayerInfo player ) => {
+				Entities.ForEach( ( ref PlayerInfo player ) => {
 					player.Initialized = false;
+				} );
+
+				// 隕石ジェネレータ.
+				Entities.ForEach( ( ref MeteoGenInfo info ) => {
+					info.Initialized = false;
+				} );
+
+				// 隕石初期化システム.
+				Entities.ForEach( ( ref InitMeteoInfo info ) => {
+					info.InitSplit = false;
 				} );
 
 				SceneService.UnloadAllSceneInstances( env.GetConfigData<GameConfig>().PrefabMeteo );

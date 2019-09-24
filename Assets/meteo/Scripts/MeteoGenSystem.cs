@@ -7,13 +7,16 @@ namespace Meteo
 {
 	public class MeteoGenSystem : ComponentSystem
 	{
+		private const float MinTime = 20f;
+		private const float UpdateTime = 8f;
+		private const int FirstNum = 10;
+		private const int MaxNum = 40;
+
 		protected override void OnUpdate()
 		{
 			bool IsPause = false;
 			Entities.ForEach( ( ref GameMngr mngr ) => {
-				if( mngr.IsPause ) {
-					IsPause = true;
-				}
+				IsPause = mngr.IsPause;
 			} );
 			if( IsPause )
 				return;
@@ -26,10 +29,16 @@ namespace Meteo
 					gen.Initialized = true;
 					gen.ReqSplit = false;
 					gen.Timer = 0;
+					gen.TotalTimer = 0;
 					gen.MeteoNum = 0;
 					gen.GeneratedCnt = 0;
+					gen.MeteoMax = 10;
 					return;
 				}
+
+				float dt = World.TinyEnvironment().frameDeltaTime;
+				gen.TotalTimer += dt;
+				gen.MeteoMax = getMeteoMax( gen.TotalTimer );
 
 				// 分裂?
 				if( gen.ReqSplit ) {
@@ -37,10 +46,10 @@ namespace Meteo
 					reqGen = true;
 				}
 				else {
-					gen.Timer += World.TinyEnvironment().frameDeltaTime;
-					if( gen.Timer > 2f ) {
-						gen.Timer = 0;
-						if( gen.MeteoNum < 10 ) {	// 個数制限.
+					gen.Timer -= dt;
+					if( gen.Timer < 0 ) {
+						gen.Timer = 2f;
+						if( gen.MeteoNum < gen.MeteoMax ) {	// 個数制限.
 							reqGen = true;
 						}
 					}
@@ -68,7 +77,20 @@ namespace Meteo
 					SceneService.LoadSceneAsync( meteoBase );
 				}
 			}
-
 		}
+
+		int getMeteoMax( float time )
+		{
+			if( time < MinTime )
+				return FirstNum;
+
+			float t = time - MinTime;
+			int meteoNum = FirstNum + (int)( t / UpdateTime );
+			if( meteoNum > MaxNum )
+				meteoNum = MaxNum;
+
+			return meteoNum;
+		}
+
 	}
 }

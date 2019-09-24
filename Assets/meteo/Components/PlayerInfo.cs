@@ -8,5 +8,6 @@ namespace Meteo
 		public bool Initialized;
 		public float Interval;
 		public float3 PrePos;
+		public float Zang;
 	}
 }

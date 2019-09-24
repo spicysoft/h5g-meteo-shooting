@@ -109,19 +109,19 @@ namespace Meteo
 				newPos.y += spd.y;
 				//trans.Value = newPos;
 
-				if( newPos.y > GameMngrSystem.BorderUp - meteo.Radius ) {
+				if( newPos.y > GameMngrSystem.BorderUp - meteo.Radius * 0.5f ) {
 					if( meteo.MoveDir.y > 0 )
 						meteo.MoveDir.y *= -1f;
 				}
-				else if( newPos.y < GameMngrSystem.BorderLow + meteo.Radius ) {
+				else if( newPos.y < GameMngrSystem.BorderLow + meteo.Radius * 0.5f ) {
 					if( meteo.MoveDir.y < 0 )
 						meteo.MoveDir.y *= -1f;
 				}
-				if( newPos.x > GameMngrSystem.BorderRight - meteo.Radius ) {
+				if( newPos.x > GameMngrSystem.BorderRight - meteo.Radius * 0.5f ) {
 					if( meteo.MoveDir.x > 0 )
 						meteo.MoveDir.x *= -1;
 				}
-				else if( newPos.x < GameMngrSystem.BorderLeft + meteo.Radius ) {
+				else if( newPos.x < GameMngrSystem.BorderLeft + meteo.Radius * 0.5f ) {
 					if( meteo.MoveDir.x < 0 )
 						meteo.MoveDir.x *= -1;
 				}
@@ -135,11 +135,14 @@ namespace Meteo
 				float rr = (PlayerSystem.PlayerR + meteo.Radius) * ( PlayerSystem.PlayerR + meteo.Radius );
 
 				if( distsq < rr ) {
-					Debug.LogFormatAlways("pl hit {0} {1}", distsq, meteo.Radius);
+#if true
+					//Debug.LogFormatAlways("pl hit {0} {1}", distsq, meteo.Radius);
+					// ゲームオーバー.
 					Entities.ForEach( ( ref GameMngr mngr ) => {
 						mngr.IsPause = true;
 						mngr.ReqGameOver = true;
 					} );
+#endif
 				}
 
 				//Debug.LogFormatAlways( "pos {0} {1}", pos.x, pos.y );

@@ -344,7 +344,7 @@
                 "x": 1600,
                 "y": 1600
             },
-            "drawMode": 0
+            "drawMode": 2
         }, {
             "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
             "Elements": [{
@@ -595,7 +595,7 @@
                 "x": 1600,
                 "y": 1600
             },
-            "drawMode": 0
+            "drawMode": 2
         }, {
             "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
             "Elements": [{
@@ -746,9 +746,8 @@
         }, {
             "$type": "Unity.Tiny.Text.Text2DStyle, Unity.Tiny.Text",
             "color": {
-                "r": 1,
                 "g": 1,
-                "b": 1,
+                "b": 0.8857477,
                 "a": 1
             },
             "size": 46
@@ -804,6 +803,10 @@
                 "c": "O"
             }, {
                 "c": "T"
+            }, {
+                "c": "E"
+            }, {
+                "c": "R"
             }]
         }, {
             "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",

@@ -1,5 +1,6 @@
 using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Tiny.Core;
 using Unity.Tiny.Core2D;
 using Unity.Tiny.Debugging;
 
@@ -13,11 +14,23 @@ namespace Meteo
 		protected override void OnCreate()
 		{
 			_random = new Random();
-			_random.InitState(123);
+
+			//int seed = 123;// World.TinyEnvironment().frameNum;
+			//Debug.LogFormatAlways( "seed {0}", seed );
+			//_random.InitState( (uint)seed );
 		}
 
 		protected override void OnUpdate()
 		{
+			Entities.ForEach( ( ref InitMeteoInfo info ) => {
+				if( !info.Initialized ) {
+					info.Initialized = true;
+					int seed = World.TinyEnvironment().frameNum;
+					Debug.LogFormatAlways( "seed {0}", seed );
+					_random.InitState( (uint)seed );
+				}
+			} );
+
 			float3 playerPos = float3.zero;
 
 			// プレイヤーの位置.
@@ -147,7 +160,7 @@ namespace Meteo
 					meteo.ZrotSpd = math.radians( _random.NextFloat( -60f, 60f ) );
 
 					// スピード.
-					meteo.BaseSpeed = _random.NextFloat( 50f, 200f );
+					meteo.BaseSpeed = _random.NextFloat( 60f, 210f );
 					// 移動ベクトル.
 					float2 dir = _random.NextFloat2();
 					meteo.MoveDir = math.normalize( dir );

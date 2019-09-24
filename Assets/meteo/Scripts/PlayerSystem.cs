@@ -10,7 +10,7 @@ namespace Meteo
 	public class PlayerSystem : ComponentSystem
 	{
 		// 半径.
-		public const float PlayerR = 32f;
+		public const float PlayerR = 30f;
 		public const float PlayerRsq = PlayerR * PlayerR;
 
 
@@ -18,9 +18,7 @@ namespace Meteo
 		{
 			bool IsPause = false;
 			Entities.ForEach( ( ref GameMngr mngr ) => {
-				if( mngr.IsPause ) {
-					IsPause = true;
-				}
+				IsPause = mngr.IsPause;
 			} );
 			if( IsPause )
 				return;
@@ -67,6 +65,7 @@ namespace Meteo
 					player.Initialized = true;
 					trans.Value = float3.zero;
 					rot.Value = quaternion.identity;
+					player.Zang = 0;	//
 					return;
 				}
 
@@ -92,24 +91,53 @@ namespace Meteo
 				}
 
 				// 向き.
+				//Debug.LogAlways( "-----" );
+				float preZa = player.Zang;
+				//Debug.LogFormatAlways( "pre {0}", preZa*180f/math.PI );
+				float limZa = math.radians( 5f );
 				if( minDist > 0 ) {
 					float3 dir = minPos - position;
 					//float3 dirN = math.normalize( dir );
 
 					float za = math.atan2( dir.y, dir.x );
 					za -= math.radians( 90f );
+					za = calcAng( za );
+					//Debug.LogFormatAlways( "za {0}", za*180f/math.PI );
+
+					float da = za - preZa;
+					da = calcAng( da );
+					//Debug.LogFormatAlways( "da {0}", da * 180f / math.PI );
+					if( da > limZa )
+						za = preZa + limZa;
+					else if( da < -limZa )
+						za = preZa - limZa;
+					
+					za = calcAng( za );
+					//Debug.LogFormatAlways( "new {0}", za*180f/math.PI );
 					rot.Value = quaternion.RotateZ( za );
+					player.Zang = za;
 				}
 				else if( isInput ) {
 					float za = math.atan2( moveDirection.y, moveDirection.x );
 					za -= math.radians( 90f );
+					za = calcAng( za );
+
+					float da = za - preZa;
+					da = calcAng( da );
+					if( da > limZa )
+						za = preZa + limZa;
+					else if( da < -limZa )
+						za = preZa - limZa;
+
+					za = calcAng( za );
 					rot.Value = quaternion.RotateZ( za );
+					player.Zang = za;
 				}
 
 
 				// 弾.
 				player.Interval += deltaTime;
-				if( player.Interval > 0.5f ) {
+				if( player.Interval > 0.4f ) {
 					player.Interval = 0;
 					reqBullet = true;
 				}
@@ -139,6 +167,17 @@ namespace Meteo
 				}
 			}
 
+		}
+
+		float calcAng( float rad )
+		{
+			float ang = rad;
+			if( rad > math.PI )
+				ang = rad - 2f*math.PI;
+			else if( rad < -math.PI )
+				ang = rad + 2f*math.PI;
+
+			return ang;
 		}
 	}
 }

@@ -19,10 +19,10 @@ namespace Meteo
 
 
 		public const float GameTimeLimit = 190f;        // ゲーム時間.
-		public const int MdTitle = 0;
-		public const int MdGame = 1;
-		public const int MdGameOver = 2;
-		public const int MdResult = 3;
+		//public const int MdTitle = 0;
+		public const int MdGame = 0;
+		public const int MdGameOver = 1;
+		public const int MdResult = 2;
 
 
 		protected override void OnUpdate()
@@ -36,9 +36,6 @@ namespace Meteo
 				float dt = World.TinyEnvironment().frameDeltaTime;
 
 				switch( mngr.Mode ) {
-				case MdTitle:
-					mngr.Mode = MdGame;
-					break;
 				case MdGame:
 					if( mngr.ReqGameOver ) {
 						mngr.ReqGameOver = false;
@@ -54,7 +51,6 @@ namespace Meteo
 						reqResult = true;
 					}
 					break;
-
 				}
 
 
