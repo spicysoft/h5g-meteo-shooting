@@ -3,12 +3,12 @@
     "Guid": "05834f5109614f2daa8ccea61672a88d",
     "SerializedVersion": 1,
     "AssetReferences": [
-        { "Guid": "ec635c8fd88e24f03b3b090066415598", "FileId": 11400000, "Type": 2},
+        { "Guid": "1e01e8005fc1d4ab3ac0b351e228b247", "FileId": 11400000, "Type": 2},
         { "Guid": "96f276887e3814320af32ace4ca584f7", "FileId": 21300000, "Type": 3}],
     "Entities": [{
         "Components": [{
             "$type": "Unity.Tiny.Text.Text2DStyleBitmapFont, Unity.Tiny.Text",
-            "font": "5c3eb6d5d49235ea5ee6549d6d8e0e8d"
+            "font": "e16917d9bcc3a1b449216c131ed68c6b"
         }, {
             "$type": "Unity.Tiny.Text.Text2DRenderer, Unity.Tiny.Text",
             "style": "23b025f388b44aac86386e083890a498",
@@ -39,7 +39,7 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
             "Value": {
-                "y": 185
+                "y": 267
             }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
@@ -125,7 +125,7 @@
     }, {
         "Components": [{
             "$type": "Unity.Tiny.Text.Text2DStyleBitmapFont, Unity.Tiny.Text",
-            "font": "5c3eb6d5d49235ea5ee6549d6d8e0e8d"
+            "font": "e16917d9bcc3a1b449216c131ed68c6b"
         }, {
             "$type": "Unity.Tiny.Text.Text2DRenderer, Unity.Tiny.Text",
             "style": "6021e3601af54c55af8e36f91f9b1bc3",
@@ -154,7 +154,8 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
             "Value": {
-                "x": 82
+                "x": 82,
+                "y": 82
             }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
@@ -260,7 +261,7 @@
                 "y": 360
             },
             "anchoredPosition": {
-                "y": -45
+                "y": 37
             },
             "pivot": {
                 "x": 0.5,
@@ -272,11 +273,15 @@
             "b": 13073390276559749720
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
-            "Value": {}
+            "Value": {
+                "y": 37
+            }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
             "Value": {
-                "value": {}
+                "value": {
+                    "w": 1
+                }
             }
         }, {
             "$type": "Unity.Tiny.Core2D.NonUniformScale, Unity.Tiny.Core2D",
@@ -291,8 +296,8 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRendererOptions, Unity.Tiny.Sprite2D",
             "size": {
-                "x": 460,
-                "y": 520
+                "x": 420,
+                "y": 360
             },
             "drawMode": 2
         }, {
@@ -366,7 +371,7 @@
                 "y": 80
             },
             "anchoredPosition": {
-                "y": -164
+                "y": -82
             },
             "pivot": {
                 "x": 0.5,
@@ -379,7 +384,7 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
             "Value": {
-                "y": -164
+                "y": -82
             }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
@@ -459,7 +464,7 @@
     }, {
         "Components": [{
             "$type": "Unity.Tiny.Text.Text2DStyleBitmapFont, Unity.Tiny.Text",
-            "font": "5c3eb6d5d49235ea5ee6549d6d8e0e8d"
+            "font": "e16917d9bcc3a1b449216c131ed68c6b"
         }, {
             "$type": "Unity.Tiny.Text.Text2DRenderer, Unity.Tiny.Text",
             "style": "9c0cc3078a5b4ccfadf4b20049540399",
@@ -490,7 +495,7 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
             "Value": {
-                "y": -164
+                "y": -82
             }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
@@ -681,7 +686,9 @@
                 "x": 460,
                 "y": 520
             },
-            "anchoredPosition": {},
+            "anchoredPosition": {
+                "y": 82
+            },
             "pivot": {
                 "x": 0.5,
                 "y": 0.5
@@ -692,11 +699,15 @@
             "b": 12661874211350808333
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
-            "Value": {}
+            "Value": {
+                "y": 82
+            }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
             "Value": {
-                "value": {}
+                "value": {
+                    "w": 1
+                }
             }
         }, {
             "$type": "Unity.Tiny.Core2D.NonUniformScale, Unity.Tiny.Core2D",
@@ -804,7 +815,7 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRenderer, Unity.Tiny.Sprite2D",
             "color": {
-                "a": 0.2352941
+                "a": 0.4705882
             },
             "blending": 0
         }, {
@@ -882,7 +893,7 @@
     }, {
         "Components": [{
             "$type": "Unity.Tiny.Text.Text2DStyleBitmapFont, Unity.Tiny.Text",
-            "font": "5c3eb6d5d49235ea5ee6549d6d8e0e8d"
+            "font": "e16917d9bcc3a1b449216c131ed68c6b"
         }, {
             "$type": "Unity.Tiny.Text.Text2DRenderer, Unity.Tiny.Text",
             "style": "f9cd5585c72e46d5b96824472b164986",
@@ -911,7 +922,8 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
             "Value": {
-                "x": -83
+                "x": -83,
+                "y": 82
             }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",

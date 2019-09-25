@@ -4,7 +4,7 @@
     "SerializedVersion": 1,
     "AssetReferences": [
         { "Guid": "5dafcc893a9eb4f1aab44fb6cbc85622", "FileId": 21300000, "Type": 3},
-        { "Guid": "ec635c8fd88e24f03b3b090066415598", "FileId": 11400000, "Type": 2},
+        { "Guid": "1e01e8005fc1d4ab3ac0b351e228b247", "FileId": 11400000, "Type": 2},
         { "Guid": "5167673342fa54a349630f9c121ebba4", "FileId": 21300000, "Type": 3},
         { "Guid": "21d40f05180bc4d3994e421ed2536173", "FileId": 21300000, "Type": 3},
         { "Guid": "0fe882fdd22554742a777b1ceee95738", "FileId": 21300000, "Type": 3},
@@ -175,7 +175,7 @@
     }, {
         "Components": [{
             "$type": "Unity.Tiny.Text.Text2DStyleBitmapFont, Unity.Tiny.Text",
-            "font": "5c3eb6d5d49235ea5ee6549d6d8e0e8d"
+            "font": "e16917d9bcc3a1b449216c131ed68c6b"
         }, {
             "$type": "Unity.Tiny.Text.Text2DRenderer, Unity.Tiny.Text",
             "style": "556a7cb95712492fb387b81ecdea3133",
@@ -198,28 +198,6 @@
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
             "Index": 2
-        }, {
-            "$type": "Unity.Tiny.UILayout.RectTransform, Unity.Tiny.UILayout",
-            "anchorMin": {
-                "x": 0.5,
-                "y": 1
-            },
-            "anchorMax": {
-                "x": 0.5,
-                "y": 1
-            },
-            "sizeDelta": {
-                "x": 201.7,
-                "y": 100
-            },
-            "anchoredPosition": {
-                "x": -87,
-                "y": -61
-            },
-            "pivot": {
-                "x": 0.5,
-                "y": 0.5
-            }
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 6154868976226814255,
@@ -302,8 +280,6 @@
             }, {
                 "StableTypeHash": 15392216118221209652
             }, {
-                "StableTypeHash": 11301794271907081408
-            }, {
                 "StableTypeHash": 16791256614846730296
             }, {
                 "StableTypeHash": 1511947279668656474
@@ -312,7 +288,7 @@
     }, {
         "Components": [{
             "$type": "Unity.Tiny.Text.Text2DStyleBitmapFont, Unity.Tiny.Text",
-            "font": "5c3eb6d5d49235ea5ee6549d6d8e0e8d"
+            "font": "e16917d9bcc3a1b449216c131ed68c6b"
         }, {
             "$type": "Unity.Tiny.Text.Text2DRenderer, Unity.Tiny.Text",
             "style": "612db3d36c834200b8126cd222a249ad",
@@ -335,28 +311,6 @@
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
             "Index": 3
-        }, {
-            "$type": "Unity.Tiny.UILayout.RectTransform, Unity.Tiny.UILayout",
-            "anchorMin": {
-                "x": 0.5,
-                "y": 1
-            },
-            "anchorMax": {
-                "x": 0.5,
-                "y": 1
-            },
-            "sizeDelta": {
-                "x": 201.7,
-                "y": 100
-            },
-            "anchoredPosition": {
-                "x": 63,
-                "y": -61
-            },
-            "pivot": {
-                "x": 0.5,
-                "y": 0.5
-            }
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 7002450716271002112,
@@ -430,8 +384,6 @@
                 "StableTypeHash": 17649336122499667438
             }, {
                 "StableTypeHash": 15392216118221209652
-            }, {
-                "StableTypeHash": 11301794271907081408
             }, {
                 "StableTypeHash": 16791256614846730296
             }, {
@@ -862,7 +814,7 @@
                 "y": 120
             },
             "anchoredPosition": {
-                "y": -270
+                "y": -208
             },
             "pivot": {
                 "x": 0.5,
@@ -875,7 +827,7 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
             "Value": {
-                "y": -270
+                "y": -208
             }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
@@ -1568,7 +1520,7 @@
                 "x": 1600,
                 "y": 1600
             },
-            "drawMode": 0
+            "drawMode": 2
         }, {
             "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
             "Elements": [{

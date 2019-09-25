@@ -94,7 +94,7 @@ namespace Meteo
 				//Debug.LogAlways( "-----" );
 				float preZa = player.Zang;
 				//Debug.LogFormatAlways( "pre {0}", preZa*180f/math.PI );
-				float limZa = math.radians( 5f );
+				float limZa = math.radians( 8f );	// リミット.
 				if( minDist > 0 ) {
 					float3 dir = minPos - position;
 					//float3 dirN = math.normalize( dir );

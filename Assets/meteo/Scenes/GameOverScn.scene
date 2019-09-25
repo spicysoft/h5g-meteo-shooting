@@ -3,11 +3,11 @@
     "Guid": "b758ecb48f54467bb5dc7e5a81f2ecd7",
     "SerializedVersion": 1,
     "AssetReferences": [
-        { "Guid": "ec635c8fd88e24f03b3b090066415598", "FileId": 11400000, "Type": 2}],
+        { "Guid": "1e01e8005fc1d4ab3ac0b351e228b247", "FileId": 11400000, "Type": 2}],
     "Entities": [{
         "Components": [{
             "$type": "Unity.Tiny.Text.Text2DStyleBitmapFont, Unity.Tiny.Text",
-            "font": "5c3eb6d5d49235ea5ee6549d6d8e0e8d"
+            "font": "e16917d9bcc3a1b449216c131ed68c6b"
         }, {
             "$type": "Unity.Tiny.Text.Text2DRenderer, Unity.Tiny.Text",
             "style": "1fec3ed3ca964f41b33522fae0b270d4",
@@ -25,7 +25,7 @@
                 "r": 1,
                 "a": 1
             },
-            "size": 36
+            "size": 44
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core"
         }, {
@@ -34,11 +34,15 @@
             "b": 12913265967461724372
         }, {
             "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
-            "Value": {}
+            "Value": {
+                "y": 143
+            }
         }, {
             "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
             "Value": {
-                "value": {}
+                "value": {
+                    "w": 1
+                }
             }
         }, {
             "$type": "Unity.Tiny.Core2D.NonUniformScale, Unity.Tiny.Core2D",
@@ -220,7 +224,7 @@
         }, {
             "$type": "Unity.Tiny.Core2D.Sprite2DRenderer, Unity.Tiny.Sprite2D",
             "color": {
-                "a": 0.2352941
+                "a": 0.4705882
             },
             "blending": 0
         }, {

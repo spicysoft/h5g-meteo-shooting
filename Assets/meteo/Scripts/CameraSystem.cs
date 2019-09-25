@@ -26,7 +26,7 @@ namespace Meteo
 				else if( pcPos.y > 400f )
 					pcPos.y = 400f;
 
-				pcPos.y -= 100f;
+				pcPos.y -= 150f;		// 少し下に.
 				trans.Value = pcPos;
 			} );
 		}
