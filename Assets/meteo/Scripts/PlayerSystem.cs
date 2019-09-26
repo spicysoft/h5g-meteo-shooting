@@ -91,10 +91,8 @@ namespace Meteo
 				}
 
 				// 向き.
-				//Debug.LogAlways( "-----" );
 				float preZa = player.Zang;
-				//Debug.LogFormatAlways( "pre {0}", preZa*180f/math.PI );
-				float limZa = math.radians( 8f );	// リミット.
+				float limZa = math.radians( 10f );	// リミット.
 				if( minDist > 0 ) {
 					float3 dir = minPos - position;
 					//float3 dirN = math.normalize( dir );
@@ -102,18 +100,15 @@ namespace Meteo
 					float za = math.atan2( dir.y, dir.x );
 					za -= math.radians( 90f );
 					za = calcAng( za );
-					//Debug.LogFormatAlways( "za {0}", za*180f/math.PI );
 
 					float da = za - preZa;
 					da = calcAng( da );
-					//Debug.LogFormatAlways( "da {0}", da * 180f / math.PI );
 					if( da > limZa )
 						za = preZa + limZa;
 					else if( da < -limZa )
 						za = preZa - limZa;
 					
 					za = calcAng( za );
-					//Debug.LogFormatAlways( "new {0}", za*180f/math.PI );
 					rot.Value = quaternion.RotateZ( za );
 					player.Zang = za;
 				}
