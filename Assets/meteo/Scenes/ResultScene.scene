@@ -589,9 +589,17 @@
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core"
         }, {
+            "$type": "Meteo.CanvasTag, meteo"
+        }, {
             "$type": "Unity.Tiny.UILayout.RectTransform, Unity.Tiny.UILayout",
-            "anchorMin": {},
-            "anchorMax": {},
+            "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+            },
             "sizeDelta": {},
             "anchoredPosition": {},
             "pivot": {}
@@ -653,6 +661,8 @@
                 "StableTypeHash": 17378348762221180850
             }, {
                 "StableTypeHash": 874803706151837934
+            }, {
+                "StableTypeHash": 9579419554931257352
             }]
         }]
     }, {

@@ -1410,6 +1410,8 @@
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core"
         }, {
+            "$type": "Meteo.CameraInfo, meteo"
+        }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 16486877408960201866,
             "b": 11640284941756450259
@@ -1417,7 +1419,6 @@
             "$type": "Unity.Tiny.Core2D.Camera2D, Unity.Tiny.Core2D",
             "halfVerticalSize": 800,
             "rect": {
-                "x": -0.55,
                 "width": 540,
                 "height": 960
             },
@@ -1470,6 +1471,8 @@
                 "StableTypeHash": 9104342357061045742
             }, {
                 "StableTypeHash": 874803706151837934
+            }, {
+                "StableTypeHash": 6406577787534523129
             }]
         }]
     }, {
